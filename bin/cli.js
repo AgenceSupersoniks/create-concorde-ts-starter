@@ -28,8 +28,11 @@ if (!installDeps) process.exit(-1);
 
 const enableShortPath = runCommand(enableShortPathCmd);
 if (!enableShortPath) process.exit(-1);
-
-
+let path = require("path");
+const packageJsonPath = path.join(repoName, "package.json");
+const packageJson = require(packageJsonPath);
+packageJson.name = repoName;
+fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 console.log("Congratulations! You are ready. Follow the following commands to start");
 console.log(`cd ${repoName} && yarn dev`);
 
