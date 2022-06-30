@@ -30,6 +30,7 @@ const enableShortPath = runCommand(enableShortPathCmd);
 if (!enableShortPath) process.exit(-1);
 
 let path = require("path");
+let fs = require("fs");
 const packageJsonPath = path.join(process.cwd(), repoName, "package.json");
 const packageJson = require(packageJsonPath);
 packageJson.name = repoName;
