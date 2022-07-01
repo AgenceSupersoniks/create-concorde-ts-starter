@@ -1,6 +1,6 @@
 {
   "name": "@supersoniks/create-concorde-ts-starter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "bin": "./bin/cli.js",
   "scripts": {
     "dev": "vite --host",
