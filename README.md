@@ -1,2 +1,2 @@
 # create-concorde-ts-starter
-Concorde typescript starter kit
+Lit + vite + typescript + tailwind + concorde
