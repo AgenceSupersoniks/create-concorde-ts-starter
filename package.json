@@ -1,6 +1,12 @@
 {
   "name": "@supersoniks/create-concorde-ts-starter",
   "version":"1.0.3",
+  "exports": {
+    ".": {
+      "import": "./index.esm.js",
+      "require": "./index.cjs.js"
+    }
+  },
   "bin":"./bin/cli.js",
   "scripts": {
     "dev": "vite --host",
