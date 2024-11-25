@@ -33,6 +33,11 @@ const config = {
       include: ["/src/**/*.css", "/src/**/*.css?*"],
     }),
   ],
+  resolve: {
+    alias: {
+      "@tailwind": path.resolve(__dirname, "./src/css/tailwind.ts"),
+    },
+  },
 };
 
 export default defineConfig(

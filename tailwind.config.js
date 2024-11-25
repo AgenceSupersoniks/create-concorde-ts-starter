@@ -60,6 +60,9 @@ module.exports = {
         headings: ["var(--sc-font-family-headings)"],
         body: ["var(--sc-font-family-base)"],
       },
+      fontWeight: {
+        headings: "var(--sc-headings-font-weight)",
+      },
     },
   },
   plugins: [require("@tailwindcss/container-queries")],
