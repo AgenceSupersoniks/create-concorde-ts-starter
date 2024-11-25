@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,css}",
-    "./index.html",
-  ],
+  content: ["./src/**/*.{js,ts,css}", "./index.html"],
   theme: {
     borderRadius: {
       none: "0",
@@ -16,6 +13,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      content: "var(--sc-base-content)",
       neutral: {
         0: "var(--sc-base)",
         100: "var(--sc-base-100)",
@@ -55,10 +53,14 @@ module.exports = {
       },
     },
     extend: {
+      borderWidth: {
+        DEFAULT: "var(--sc-border-width)",
+      },
       fontFamily: {
         headings: ["var(--sc-font-family-headings)"],
         body: ["var(--sc-font-family-base)"],
       },
     },
   },
+  plugins: [require("@tailwindcss/container-queries")],
 };
