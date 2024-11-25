@@ -1,7 +1,7 @@
 import {html, LitElement} from "lit";
 import {customElement, property} from "lit/decorators.js";
-import Fetcher from "@supersoniks/concorde/core/mixins/Fetcher";
-import Subscriber from "@supersoniks/concorde/core/mixins/Subscriber";
+import Fetcher from "@supersoniks/concorde/mixins/Fetcher";
+import Subscriber from "@supersoniks/concorde/mixins/Subscriber";
 import tailwind from "./tailwind";
 
 /**
