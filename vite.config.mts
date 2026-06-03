@@ -1,11 +1,9 @@
 import {defineConfig} from "vite";
-import concordeConf from "@supersoniks/concorde/vite-config";
+import concordeConf, {autoRoutesPlugin} from "@supersoniks/concorde/vite-config";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 import tsConfig from "./tsconfig.json";
-import fs from "fs";
-import path from "path";
 import postcssLit from "rollup-plugin-postcss-lit";
-
-//write a vite pluggin function  that remoces the @customElement décorator from the code comming from concorde components
+import {demoApiVitePlugin} from "./scripts/demo-api-vite-plugin";
 
 export const packages = {
   concorde: {
@@ -24,11 +22,17 @@ const config = {
     lib: currentConfig.lib,
   },
   server: {
+    host: true,
+    port: 3000,
     watch: {
+      usePolling: true,
       ignored: ["**/*.svg"],
     },
   },
   plugins: [
+    basicSsl(),
+    demoApiVitePlugin(),
+    autoRoutesPlugin("src/starter/routes"),
     postcssLit({
       include: ["/src/**/*.css", "/src/**/*.css?*"],
     }),
@@ -45,5 +49,5 @@ export default defineConfig(
     componentPrefix: "sonic",
     tsConfig: tsConfig,
     viteConfig: config,
-  })
+  }),
 );

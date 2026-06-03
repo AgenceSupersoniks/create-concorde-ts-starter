@@ -40,6 +40,10 @@ delete packageJson.bin;
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
 console.log(
-  "Congratulations! You are ready. Follow the following commands to start"
+  "Congratulations! Your Concorde project is ready."
 );
-console.log(`cd ${repoName} && yarn dev`);
+console.log("");
+console.log(`  cd ${repoName}`);
+console.log("  yarn dev    # https://localhost:3000 (accept self-signed cert)");
+console.log("");
+console.log("  Kit pédagogique : src/starter/ — voir GETTING_STARTED.md");
