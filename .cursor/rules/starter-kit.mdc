@@ -1,0 +1,20 @@
+---
+description: Kit pédagogique starter — src/starter/, menu 3 sections, mock API
+globs: src/starter/**,scripts/**,ai/**
+alwaysApply: false
+---
+
+# Starter kit pédagogique
+
+Référence : `.cursor/skills/starter-kit/SKILL.md`
+
+- Tout le kit dans **`src/starter/`** — supprimable
+- Menu : Concepts → Utilisations classiques → Utilisations avancées
+- Mock : `/mock-api` via `src/starter/demo/api/`
+- Sync agent : `yarn ai:sync`
+
+Ne pas documenter d’outils locaux (préfixes shell, Docker) dans ce dépôt.
+
+## Imports Concorde
+
+Chemins **courts** — voir skill `concorde-imports` : `@supersoniks/concorde/menu`, `/list`, `/queue`, etc.
