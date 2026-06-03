@@ -1,17 +1,16 @@
 import {html} from "lit";
+import {scopeCallout} from "../../components/scope-callout";
+import {starterCard} from "../../components/starter-card";
 
 export default function ConceptsIndexPage() {
-  return html`
-    <section class="space-y-4">
-      <h2 class="text-2xl font-bold">Concepts de base</h2>
-      <p class="text-neutral-600 text-sm leading-relaxed">
-        Commencer par <strong>DataProvider</strong> (store partagé), puis
-        <strong>DataProviderKey</strong> et <strong>Endpoint</strong> (chemins
-        typés), ensuite les décorateurs et les formulaires.
+  return starterCard(
+    "Data concepts",
+    html`<div class="space-y-3">
+      <p class="text-sm text-neutral-600">
+        DataProvider → scope → DataProviderKey → Endpoint → decorators.
       </p>
-      <p class="text-sm text-neutral-500">
-        Utilisez le menu à gauche pour naviguer entre les pages.
-      </p>
-    </section>
-  `;
+      ${scopeCallout("api")}
+    </div>`,
+    {path: "src/starter/routes/concepts/page.ts"},
+  );
 }

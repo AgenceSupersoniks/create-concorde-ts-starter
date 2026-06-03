@@ -1,16 +1,16 @@
 import {html} from "lit";
+import {scopeCallout} from "../../../components/scope-callout";
 import "../../../demo/components/demo-queue-templates";
+import {starterCard} from "../../../components/starter-card";
 
 export default function DemoQueuePage() {
-  return html`
-    <section class="space-y-4">
-      <h2 class="text-2xl font-bold">sonic-queue — templates</h2>
-      <p class="text-neutral-600 text-sm leading-relaxed">
-        Même système de templates que <code>sonic-list</code> (propriétés Lit),
-        appliqué à chaque lot en scroll infini. Filtre via
-        <code>formDataProvider</code> + <code>dataFilterProvider</code>.
-      </p>
+  return starterCard(
+    "sonic-queue",
+    html`<div class="space-y-4">
+      ${scopeCallout("api")}
+      <p class="text-sm text-neutral-600">Infinite scroll · same templates as list.</p>
       <demo-queue-templates></demo-queue-templates>
-    </section>
-  `;
+    </div>`,
+    {path: "src/starter/demo/components/demo-queue-templates.ts", label: "queue-templates"},
+  );
 }

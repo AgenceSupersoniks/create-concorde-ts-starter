@@ -1,24 +1,26 @@
 # Agents — create-concorde-ts-starter
 
-Couche **starter** (template npm). Voir aussi la base Concorde dans le même `AGENTS.md`.
+Starter layer (npm template). See base Concorde guidance in root `AGENTS.md`.
 
-## Skills starter
+## Starter skills
 
-| Skill | Quand |
-|-------|--------|
+| Skill | When |
+|-------|------|
 | `.cursor/skills/starter-kit/SKILL.md` | Kit `src/starter/`, menu, mock API |
+| `.cursor/skills/concorde-ui/SKILL.md` | Pick UI components by use case |
+| `.cursor/skills/concorde-scope/SKILL.md` | Inherited API / form / icon defaults (scope) |
 
 ## Architecture
 
-- **`src/starter/`** — kit pédagogique supprimable
-- **`src/app/`** — modèle minimal post-suppression
-- **`src/starter/routes/router.ts`** — généré (pas de tirets dans les dossiers routes)
+- **`src/starter/`** — removable learning kit
+- **`src/app/`** — minimal app after kit removal
+- **`src/starter/routes/router.ts`** — generated (no hyphens in route folder names)
 
-## Sync des fichiers agent
+## Sync agent files
 
 ```bash
 yarn ai:sync
 ```
 
-Source Concorde : `node_modules/@supersoniks/concorde/ai/`  
-Overlay starter : `ai/starter/` (ce dépôt).
+Concorde source: `node_modules/@supersoniks/concorde/ai/`  
+Starter overlay: `ai/starter/` (this repo).

@@ -49,15 +49,15 @@ export class AdvancedDpkeyDynamicDemo extends LitElement {
 
         <dl class="text-sm font-mono space-y-1 bg-neutral-100/80 rounded p-3">
           <div>
-            <dt class="text-neutral-500">userIndex (hôte)</dt>
+            <dt class="text-neutral-500">userIndex (host)</dt>
             <dd>${this.userIndex}</dd>
           </div>
           <div>
-            <dt class="text-neutral-500">Chemin résolu</dt>
+            <dt class="text-neutral-500">Resolved path</dt>
             <dd>${resolvedPath}</dd>
           </div>
           <div>
-            <dt class="text-neutral-500">Clé statique (template)</dt>
+            <dt class="text-neutral-500">Static key (template)</dt>
             <dd>${advancedUserKey.path}</dd>
           </div>
         </dl>
@@ -75,7 +75,7 @@ export class AdvancedDpkeyDynamicDemo extends LitElement {
               `
             : html`
                 <p class="text-sm text-neutral-500 italic">
-                  Aucune donnée à l’index ${this.userIndex}
+                  No data at index ${this.userIndex}
                 </p>
               `}
         </div>
@@ -84,7 +84,7 @@ export class AdvancedDpkeyDynamicDemo extends LitElement {
           <h4 class="text-sm font-semibold">@handle(advancedUserKey)</h4>
           <p class="text-sm text-neutral-600">
             ${this.handleMessage ||
-            "En attente d’une assignation sur le chemin courant…"}
+            "Waiting for an assignment on the current path…"}
           </p>
         </div>
       </div>

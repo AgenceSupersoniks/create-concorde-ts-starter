@@ -1,14 +1,14 @@
 const SW_URL = "/demo-api-sw.js";
 
 /**
- * Enregistre le Service Worker qui intercepte /mock-api/*.
- * Idempotent : safe à rappeler après HMR.
+ * Registers the Service Worker that intercepts /mock-api/*.
+ * Idempotent: safe to call again after HMR.
  */
 export async function registerDemoApiServiceWorker(): Promise<
   ServiceWorkerRegistration | undefined
 > {
   if (!("serviceWorker" in navigator)) {
-    console.warn("[demo-api] Service Workers non supportés");
+    console.warn("[demo-api] Service Workers not supported");
     return undefined;
   }
 
@@ -24,7 +24,7 @@ export async function registerDemoApiServiceWorker(): Promise<
     await navigator.serviceWorker.ready;
     return registration;
   } catch (error) {
-    console.error("[demo-api] Échec enregistrement SW", error);
+    console.error("[demo-api] Service Worker registration failed", error);
     return undefined;
   }
 }

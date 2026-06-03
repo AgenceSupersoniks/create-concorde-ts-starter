@@ -1,9 +1,11 @@
 import {defineConfig} from "vite";
 import concordeConf, {autoRoutesPlugin} from "@supersoniks/concorde/vite-config";
 import basicSsl from "@vitejs/plugin-basic-ssl";
+import path from "path";
 import tsConfig from "./tsconfig.json";
 import postcssLit from "rollup-plugin-postcss-lit";
 import {demoApiVitePlugin} from "./scripts/demo-api-vite-plugin";
+import {starterOpenInEditorPlugin} from "./scripts/starter-open-in-editor-plugin";
 
 export const packages = {
   concorde: {
@@ -32,6 +34,7 @@ const config = {
   plugins: [
     basicSsl(),
     demoApiVitePlugin(),
+    starterOpenInEditorPlugin(),
     autoRoutesPlugin("src/starter/routes"),
     postcssLit({
       include: ["/src/**/*.css", "/src/**/*.css?*"],

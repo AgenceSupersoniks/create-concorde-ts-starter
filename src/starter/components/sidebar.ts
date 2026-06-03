@@ -10,9 +10,10 @@ export type SidebarSection = {
 };
 
 export const CONCEPTS_SECTION: SidebarSection = {
-  title: "Concepts",
+  title: "Data concepts",
   links: [
     {href: "/concepts/dataprovider", label: "DataProvider"},
+    {href: "/concepts/scope", label: "Scope"},
     {href: "/concepts/dpkey", label: "DataProviderKey"},
     {href: "/concepts/endpoint", label: "Endpoint"},
     {href: "/concepts/publish", label: "@publish + @subscribe"},
@@ -22,8 +23,13 @@ export const CONCEPTS_SECTION: SidebarSection = {
   ],
 };
 
+export const UI_SECTION: SidebarSection = {
+  title: "UI kit",
+  links: [{href: "/ui", label: "Overview"}],
+};
+
 export const DEMO_SECTION: SidebarSection = {
-  title: "Utilisations classiques",
+  title: "Functional patterns",
   links: [
     {href: "/demo/get", label: "@get"},
     {href: "/demo/list", label: "sonic-list"},
@@ -32,9 +38,9 @@ export const DEMO_SECTION: SidebarSection = {
 };
 
 export const ADVANCED_SECTION: SidebarSection = {
-  title: "Utilisations avancées",
+  title: "Advanced patterns",
   links: [
-    {href: "/advanced/dynamic", label: "DataProviderKey dynamique"},
+    {href: "/advanced/dynamic", label: "Dynamic DataProviderKey"},
   ],
 };
 
@@ -50,38 +56,14 @@ const sectionDivider = (title: string) => html`
 
 export function renderStarterSidebar(sections: SidebarSection[]) {
   return html`
-    <nav aria-label="Navigation latérale">
+    <nav aria-label="Side navigation">
       <sonic-menu direction="column" align="left" size="sm" class="w-full">
-        ${navItem("/", "Accueil")}
+        ${navItem("/", "Home")}
         ${sections.flatMap((section) => [
           sectionDivider(section.title),
           ...section.links.map((link) => navItem(link.href, link.label)),
         ])}
       </sonic-menu>
     </nav>
-  `;
-}
-
-export function renderDocsShell(
-  sections: SidebarSection[],
-  children: unknown,
-) {
-  return html`
-    <div class="max-w-6xl mx-auto px-4 py-8">
-      <div class="flex gap-10 items-start">
-        <aside
-          class="w-52 shrink-0 sticky top-8 self-start hidden sm:block"
-          aria-label="Sommaire"
-        >
-          ${renderStarterSidebar(sections)}
-        </aside>
-        <div class="flex-1 min-w-0">
-          <header class="mb-8 sm:hidden">
-            ${renderStarterSidebar(sections)}
-          </header>
-          <main>${children}</main>
-        </div>
-      </div>
-    </div>
   `;
 }

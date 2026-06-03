@@ -1,10 +1,14 @@
-import {LitElement} from "lit";
+import {html, LitElement} from "lit";
 import {customElement} from "lit/decorators.js";
+import "@supersoniks/concorde/sonic-scope";
+import {getMockApiServiceUrl} from "./starter/demo/api/config";
 import {router} from "./starter/routes/router";
 
 /**
- * Point d’entrée du routage. Routes du kit : `src/starter/routes/`.
- * Après suppression de `src/starter/` : voir GETTING_STARTED.md.
+ * Routing entry point. Kit routes: `src/starter/routes/`.
+ * After removing `src/starter/`: see GETTING_STARTED.md.
+ *
+ * sonic-scope: default mock API base URL for scoped @get / list / queue.
  */
 @customElement("starter-router-host")
 export class StarterRouterHost extends LitElement {
@@ -21,6 +25,13 @@ export class StarterRouterHost extends LitElement {
   }
 
   render() {
-    return router("");
+    return html`
+      <sonic-scope
+        serviceURL=${getMockApiServiceUrl()}
+        customIconLibraryPath="https://cdnjs.cloudflare.com/ajax/libs/iconoir/5.1.4/icons/$name.svg"
+      >
+        ${router("")}
+      </sonic-scope>
+    `;
   }
 }

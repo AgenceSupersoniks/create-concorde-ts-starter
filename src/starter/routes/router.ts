@@ -13,6 +13,7 @@ import conceptsEndpointPage from "./concepts/endpoint/page";
 import conceptsFormPage from "./concepts/form/page";
 import conceptsHandlePage from "./concepts/handle/page";
 import conceptsPublishPage from "./concepts/publish/page";
+import conceptsScopePage from "./concepts/scope/page";
 import conceptsSubPage from "./concepts/sub/page";
 import conceptsPage from "./concepts/page";
 import demoLayout from "./demo/layout";
@@ -20,6 +21,8 @@ import demoGetPage from "./demo/get/page";
 import demoListPage from "./demo/list/page";
 import demoQueuePage from "./demo/queue/page";
 import demoPage from "./demo/page";
+import uiLayout from "./ui/layout";
+import uiPage from "./ui/page";
 import page from "./page";
 export const router = (basePath?:string) => {
 const advancedDynamicDefaultLayoutRoutes = {
@@ -55,6 +58,10 @@ const conceptsPublishDefaultLayoutRoutes = {
     "/concepts/publish$": conceptsPublishPage
 }        
 
+const conceptsScopeDefaultLayoutRoutes = {
+    "/concepts/scope$": conceptsScopePage
+}        
+
 const conceptsSubDefaultLayoutRoutes = {
     "/concepts/sub$": conceptsSubPage
 }        
@@ -66,6 +73,7 @@ const conceptsLayoutRoutes = {
     "/concepts/form\\b": () => html`<sonic-router .basePath=${basePath} .routes=${conceptsFormDefaultLayoutRoutes}></sonic-router>`,
     "/concepts/handle\\b": () => html`<sonic-router .basePath=${basePath} .routes=${conceptsHandleDefaultLayoutRoutes}></sonic-router>`,
     "/concepts/publish\\b": () => html`<sonic-router .basePath=${basePath} .routes=${conceptsPublishDefaultLayoutRoutes}></sonic-router>`,
+    "/concepts/scope\\b": () => html`<sonic-router .basePath=${basePath} .routes=${conceptsScopeDefaultLayoutRoutes}></sonic-router>`,
     "/concepts/sub\\b": () => html`<sonic-router .basePath=${basePath} .routes=${conceptsSubDefaultLayoutRoutes}></sonic-router>`,
     "/concepts$": conceptsPage
 }        
@@ -89,10 +97,15 @@ const demoLayoutRoutes = {
     "/demo$": demoPage
 }        
 
+const uiLayoutRoutes = {
+    "/ui$": uiPage
+}        
+
 const layoutRoutes = {
     "/advanced\\b": (params?: Record<string, string>) => advancedLayout(html`<sonic-router .basePath=${basePath} .routes=${advancedLayoutRoutes}></sonic-router>`, params),
     "/concepts\\b": (params?: Record<string, string>) => conceptsLayout(html`<sonic-router .basePath=${basePath} .routes=${conceptsLayoutRoutes}></sonic-router>`, params),
     "/demo\\b": (params?: Record<string, string>) => demoLayout(html`<sonic-router .basePath=${basePath} .routes=${demoLayoutRoutes}></sonic-router>`, params),
+    "/ui\\b": (params?: Record<string, string>) => uiLayout(html`<sonic-router .basePath=${basePath} .routes=${uiLayoutRoutes}></sonic-router>`, params),
     "/$": page
 }        
 return layout(html`<sonic-router .basePath=${basePath} .routes=${layoutRoutes}></sonic-router>`)}

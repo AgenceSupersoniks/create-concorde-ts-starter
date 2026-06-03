@@ -150,7 +150,7 @@ export const DEMO_COMMUNES: GeoCommuneRow[] = [
   {nom: "Nantes", code: "44109"},
 ];
 
-/** Filtre utilisateurs pour la recherche mock (prénom, nom, email). */
+/** Filter users for mock search (first name, last name, email). */
 export function filterDemoUsers(
   users: ReqresUser[],
   query: string | null | undefined,

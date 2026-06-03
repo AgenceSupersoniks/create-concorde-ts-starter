@@ -1,25 +1,26 @@
 ---
 name: starter-kit
 description: >-
-  Kit pédagogique create-concorde-ts-starter : src/starter/, menu 3 sections,
-  mock API, routes concepts/demo/advanced. Supprimable en prod.
+  create-concorde-ts-starter learning kit: src/starter/, sidebar sections,
+  UI kit demo, mock API, concepts/demo/advanced routes. Removable for production.
 ---
 
-# Kit pédagogique — create-concorde-ts-starter
+# Starter kit — create-concorde-ts-starter
 
-Landing + kit dans **`src/starter/`** (supprimable). App future : **`src/app/`**.
+Landing + kit in **`src/starter/`** (removable). Future app: **`src/app/`**.
 
-Accès DataProvider : **`src/utils/dataprovider.ts`** (`get`, `set`, `read`).
+DataProvider access: **`src/utils/dataprovider.ts`** (`get`, `set`, `read`).
 
 ## Structure
 
 ```
 src/starter/
-├── routes/           # /, /concepts/*, /demo/*, /advanced/*
-├── concepts/         # dp.ts, composants démo
+├── routes/           # /, /concepts/*, /ui, /demo/*, /advanced/*
+├── ui/               # UI kit demo component
+├── concepts/         # dp.ts, demo components
 ├── demo/             # mock API, demo-*-templates
-├── advanced/         # DataProviderKey dynamique
-├── components/       # sidebar.ts, docs-shell.ts
+├── advanced/         # dynamic DataProviderKey
+├── components/       # sidebar.ts, docs-shell.ts, starter-card.ts
 └── init.ts
 ```
 
@@ -27,29 +28,35 @@ src/starter/
 
 | Section | Routes |
 |---------|--------|
-| **Concepts** | `/concepts/dataprovider` … `/concepts/sub` |
-| **Utilisations classiques** | `/demo/get`, `/demo/list`, `/demo/queue` |
-| **Utilisations avancées** | `/advanced/dynamic` |
+| **Data concepts** | `/concepts/dataprovider`, `/concepts/scope`, … `/concepts/sub` |
+| **UI kit** | `/ui` |
+| **Functional patterns** | `/demo/get`, `/demo/list`, `/demo/queue` |
+| **Advanced patterns** | `/advanced/dynamic` |
 
-Source : `src/starter/components/sidebar.ts` — `CONCEPTS_SECTION`, `DEMO_SECTION`, `ADVANCED_SECTION`.
+Source: `src/starter/components/sidebar.ts` — `CONCEPTS_SECTION`, `UI_SECTION`, `DEMO_SECTION`, `ADVANCED_SECTION`.
 
-## Progression pédagogique
+Dev **↗ source** links when Cursor CLI is available (`cursor -r -g` via `/__starter/open`).
 
-1. DataProvider → DataProviderKey → Endpoint
-2. @publish, @handle, formDataProvider, sub()
-3. @get, sonic-list (templates Lit), sonic-queue (scroll + recherche)
-4. DataProviderKey dynamique (`/advanced/dynamic`)
+## Learning path
 
-## Fichiers clés
+1. **UI kit** (`/ui`) — buttons, badges, cards; skill **`concorde-ui`**
+2. DataProvider → **scope** (`/concepts/scope`) → DataProviderKey → Endpoint
+3. @publish, @handle, formDataProvider, sub()
+4. @get, sonic-list (Lit templates), sonic-queue (scroll + search)
+5. Dynamic DataProviderKey (`/advanced/dynamic`)
 
-| Sujet | Fichier |
-|-------|---------|
-| Clés concepts | `src/starter/concepts/dp.ts` |
-| Clé dynamique | `src/starter/advanced/dp.ts` |
-| Templates list | `src/starter/demo/components/demo-list-templates.ts` |
-| Templates queue | `src/starter/demo/components/demo-queue-templates.ts` |
+## Key files
+
+| Topic | File |
+|-------|------|
+| UI overview | `src/starter/ui/components/ui-kit-demo.ts` |
+| Scope | `src/starter/routes/concepts/scope/page.ts`, `scope-callout.ts` |
+| Concept keys | `src/starter/concepts/dp.ts` |
+| Dynamic key | `src/starter/advanced/dp.ts` |
+| List templates | `src/starter/demo/components/demo-list-templates.ts` |
+| Queue templates | `src/starter/demo/components/demo-queue-templates.ts` |
 | Mock API | `src/starter/demo/api/` |
 
-## Supprimer le kit
+## Remove the kit
 
-Voir `src/starter/README.md` et `GETTING_STARTED.md`.
+See `src/starter/README.md` and `GETTING_STARTED.md`.

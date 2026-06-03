@@ -34,7 +34,7 @@ export class DemoQueueTemplates extends LitElement {
 
   private noItems = (): DirectiveResult => html`
     <p class="text-sm text-neutral-500 italic p-4 text-center">
-      Aucun utilisateur — propriété <code>.noItems</code>
+      No users — <code>.noItems</code> property
     </p>
   `;
 
@@ -56,9 +56,8 @@ export class DemoQueueTemplates extends LitElement {
 
     const sections: DemoSection[] = [
       {
-        title: "1. `.items` — scroll infini + recherche",
-        description:
-          "Chaque lot de `sonic-queue` instancie un `sonic-list` interne qui reçoit les mêmes propriétés de template. Pattern du starter : `.items` en fonction Lit, pagination via `lazyload` + `$offset`/`$limit`, filtre `formDataProvider` → `dataFilterProvider` (paramètre `q` sur le mock).",
+        title: "Infinite scroll + search",
+        description: "Same templates as list.",
         code: `<sonic-queue lazyload
   dataFilterProvider="demoUsersFilter"
   dataProviderExpression="users?offset=$offset&limit=$limit"
@@ -73,8 +72,8 @@ export class DemoQueueTemplates extends LitElement {
             <sonic-input
               name="q"
               type="search"
-              label="Rechercher"
-              placeholder="Prénom, nom ou email"
+              label="Search"
+              placeholder="First name, last name, or email"
             ></sonic-input>
           </div>
           <sonic-queue
@@ -93,28 +92,17 @@ export class DemoQueueTemplates extends LitElement {
         `,
       },
       {
-        title: "2. `.noItems` — liste vide filtrée",
-        description:
-          "Tapez une recherche sans correspondance (ex. « zzz ») : la queue se réinitialise et affiche `.noItems`. Cette propriété ne s’applique qu’au premier lot (liste globalement vide).",
-        code: `.noItems=\${() => html\`<p>Aucun résultat</p>\`}`,
+        title: "`.noItems`",
+        description: 'Search "zzz" above.',
+        code: `.noItems=\${() => html\`<p>No results</p>\`}`,
         demo: html`
           <p class="text-xs text-neutral-500">
-            Testez dans la démo ci-dessus avec une recherche impossible.
+            Try it in the demo above with an impossible search.
           </p>
         `,
       },
     ];
 
-    return html`
-      <div class="space-y-2">
-        <p class="text-sm text-neutral-600 mb-6">
-          <code>sonic-queue</code> pagine automatiquement (scroll infini) et
-          transmet les propriétés de template (<code>.items</code>,
-          <code>.separator</code>, <code>.noItems</code>, <code>.skeleton</code>)
-          à chaque <code>sonic-list</code> interne.
-        </p>
-        ${sections.map((s) => this.section(s))}
-      </div>
-    `;
+    return html`${sections.map((s) => this.section(s))}`;
   }
 }

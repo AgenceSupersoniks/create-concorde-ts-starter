@@ -65,4 +65,4 @@ node node_modules/@supersoniks/concorde/scripts/ai-init.mjs
 
 ## Concorde
 
-Documentation : https://doc.concorde.test/
+Documentation : fichiers `.md` dans `node_modules/@supersoniks/concorde/src/`.

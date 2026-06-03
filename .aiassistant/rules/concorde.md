@@ -1,6 +1,6 @@
 # Concorde — patterns agent
 
-Référence doc : https://doc.concorde.test/
+Référence doc : fichiers `.md` dans `node_modules/@supersoniks/concorde/src/`.
 
 ## Imports (chemins courts)
 

@@ -6,9 +6,7 @@ import {set} from "../../../utils/dataprovider";
 import {counterKey} from "../dp";
 import tailwind from "../../../tailwind";
 
-/**
- * @publish écrit dans le DataProvider ; @subscribe lit la même clé pour l’affichage.
- */
+/** @publish writes to the DataProvider; @subscribe reads the same key for display. */
 @customElement("concept-publish-demo")
 export class ConceptPublishDemo extends LitElement {
   static styles = [tailwind];
@@ -36,13 +34,7 @@ export class ConceptPublishDemo extends LitElement {
         <sonic-button type="button" variant="primary" @click=${this.increment}>
           +1 (@publish)
         </sonic-button>
-        <p class="text-lg">
-          Lu via <code>@subscribe</code> :
-          <strong>${this.subscribedCount}</strong>
-        </p>
-        <p class="text-xs text-neutral-500 font-mono">
-          DataProvider : ${counterKey.path} → ${counterKey.count.path}
-        </p>
+        <p class="text-lg">Count: <strong>${this.subscribedCount}</strong></p>
       </div>
     `;
   }

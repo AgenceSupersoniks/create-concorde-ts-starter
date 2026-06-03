@@ -7,7 +7,7 @@ export const starterApiConfigKey = new DataProviderKey<APIConfiguration>(
   "starterApiConfiguration",
 );
 
-/** URL de base du mock (origin + /mock-api) */
+/** Mock base URL (origin + /mock-api) */
 export function getMockApiServiceUrl(origin = location.origin): string {
   return new URL(MOCK_API_PATH_PREFIX, origin).href.replace(/\/$/, "");
 }

@@ -29,11 +29,11 @@ Tout est dans **un seul dossier** : landing, concepts, utilisations classiques, 
 
 | Section | Contenu |
 |---------|---------|
-| **Concepts** | DataProvider, DataProviderKey, Endpoint, @publish, @handle, form, sub |
-| **Utilisations classiques** | @get, sonic-list (templates Lit), sonic-queue (scroll + recherche) |
+| **Data concepts** | DataProvider, DataProviderKey, Endpoint, @publish, @handle, form, sub |
+| **Functional patterns** | @get, sonic-list (templates Lit), sonic-queue (scroll + recherche) |
 | **Utilisations avancées** | DataProviderKey avec placeholder dynamique |
 
-Landing (`/`) : liens vers **Concepts** et **Utilisations classiques**.
+Landing (`/`) : liens vers **Data concepts** et **Functional patterns**.
 
 ## Passer à votre app seule
 

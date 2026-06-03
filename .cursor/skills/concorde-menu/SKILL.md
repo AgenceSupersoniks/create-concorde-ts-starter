@@ -7,7 +7,7 @@ description: >-
 
 # Concorde — menus et navigation
 
-Référence doc : [Menu](https://doc.concorde.test/) — `sonic-menu`, `sonic-menu-item`, `sonic-divider`.
+Référence doc : `node_modules/@supersoniks/concorde/src/core/components/ui/menu/menu.md`
 
 ## Imports
 

@@ -8,7 +8,7 @@ description: >-
 
 # Concorde — patterns et migrations
 
-Source de vérité : https://doc.concorde.test/
+Source de vérité : fichiers `.md` dans `node_modules/@supersoniks/concorde/src/` (composants, décorateurs, docs).
 
 **Imports** : toujours les chemins **les plus courts** — voir skill `concorde-imports` et section ci-dessous.
 

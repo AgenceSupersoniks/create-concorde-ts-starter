@@ -1,4 +1,4 @@
-/** Forme compatible reqres (key="data" sur sonic-list / sonic-queue) */
+/** reqres-compatible shape (key="data" on sonic-list / sonic-queue) */
 export type ReqresUser = {
   id: number;
   email: string;

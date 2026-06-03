@@ -33,13 +33,13 @@ export class DemoListTemplates extends LitElement {
 
   private noItems = (): DirectiveResult => html`
     <p class="text-sm text-neutral-500 italic p-3">
-      Liste vide — propriété <code>.noItems</code>
+      Empty list — <code>.noItems</code> property
     </p>
   `;
 
   private skeleton = (): DirectiveResult => html`
     <div class="p-3 animate-pulse bg-neutral-100 rounded-md text-sm text-neutral-400">
-      Chargement… — propriété <code>.skeleton</code>
+      Loading… — <code>.skeleton</code> property
     </div>
   `;
 
@@ -66,9 +66,8 @@ export class DemoListTemplates extends LitElement {
 
     const sections: DemoSection[] = [
       {
-        title: "1. `.items` — rendu de chaque ligne",
-        description:
-          "Fonction `(item, metadata) => html\\`…\\``. Reçoit l’objet de la ligne et `_metadata_` (firstChild, lastChild, even, odd…). C’est le template principal pour afficher les données.",
+        title: "`.items`",
+        description: "Render each row.",
         code: `.items=\${(user) => html\`
   <div>\${user.first_name} \${user.last_name}</div>
 \`}`,
@@ -85,9 +84,8 @@ export class DemoListTemplates extends LitElement {
         `,
       },
       {
-        title: "2. `.separator` — entre chaque item",
-        description:
-          "Fonction Lit insérée entre chaque ligne (pas après la dernière). Utile pour des séparateurs visuels sans polluer le rendu item.",
+        title: "`.separator`",
+        description: "Between rows.",
         code: `.separator=\${() => html\`<hr />\`}`,
         demo: html`
           <sonic-list
@@ -100,10 +98,9 @@ export class DemoListTemplates extends LitElement {
         `,
       },
       {
-        title: "3. `.noItems` — liste vide",
-        description:
-          "Affiché quand `props` est un tableau vide (ou quand un fetch ne retourne aucune ligne).",
-        code: `.noItems=\${() => html\`<p>Aucun résultat</p>\`}`,
+        title: "`.noItems`",
+        description: "Empty list.",
+        code: `.noItems=\${() => html\`<p>No results</p>\`}`,
         demo: html`
           <sonic-list
             dataprovider="demoListTplEmpty"
@@ -114,9 +111,8 @@ export class DemoListTemplates extends LitElement {
         `,
       },
       {
-        title: "4. `.skeleton` — état de chargement",
-        description:
-          "Pendant un `fetch`, avant l’arrivée des données. Sans `.skeleton`, un `sonic-loader` s’affiche si l’attribut `loader` est défini.",
+        title: "`.skeleton`",
+        description: "While fetching.",
         code: `.skeleton=\${() => html\`<div class="animate-pulse">…</div>\`}
 .items=\${renderUser}`,
         demo: html`
@@ -134,15 +130,6 @@ export class DemoListTemplates extends LitElement {
       },
     ];
 
-    return html`
-      <div class="space-y-2">
-        <p class="text-sm text-neutral-600 mb-6">
-          <code>sonic-list</code> accepte des templates via des propriétés Lit
-          (<code>.items</code>, <code>.separator</code>, <code>.noItems</code>,
-          <code>.skeleton</code>) — idéal avec TypeScript dans le starter.
-        </p>
-        ${sections.map((s) => this.section(s))}
-      </div>
-    `;
+    return html`${sections.map((s) => this.section(s))}`;
   }
 }

@@ -1,20 +1,21 @@
 ---
-description: Kit pédagogique starter — src/starter/, menu 3 sections, mock API
+description: Starter learning kit — src/starter/, UI kit, mock API, sidebar sections
 globs: src/starter/**,scripts/**,ai/**
 alwaysApply: false
 ---
 
-# Starter kit pédagogique
+# Starter kit
 
-Référence : `.cursor/skills/starter-kit/SKILL.md`
+Reference: `.cursor/skills/starter-kit/SKILL.md`
 
-- Tout le kit dans **`src/starter/`** — supprimable
-- Menu : Concepts → Utilisations classiques → Utilisations avancées
-- Mock : `/mock-api` via `src/starter/demo/api/`
-- Sync agent : `yarn ai:sync`
+- All kit code in **`src/starter/`** — removable
+- Menu: Data concepts → **UI kit** → Functional patterns → Advanced patterns
+- UI components: `/ui` + skill **`concorde-ui`**
+- Mock: `/mock-api` via `src/starter/demo/api/`
+- Sync agents: `yarn ai:sync`
 
-Ne pas documenter d’outils locaux (préfixes shell, Docker) dans ce dépôt.
+Do not document local-only tooling in this repo.
 
-## Imports Concorde
+## Concorde imports
 
-Chemins **courts** — voir skill `concorde-imports` : `@supersoniks/concorde/menu`, `/list`, `/queue`, etc.
+Short paths — skill `concorde-imports`: `@supersoniks/concorde/menu`, `/button`, `/badge`, `/list`, etc.

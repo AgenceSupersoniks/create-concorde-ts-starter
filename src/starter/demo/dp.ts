@@ -1,6 +1,6 @@
 import {DataProviderKey} from "@supersoniks/concorde/dataProviderKey";
 
-/** Filtre sonic-queue — recherche unique (prénom, nom, email). */
+/** sonic-queue filter — single search field (first name, last name, email). */
 export type DemoUsersFilter = {
   q: string;
 };

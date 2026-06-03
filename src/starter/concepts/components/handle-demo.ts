@@ -6,9 +6,7 @@ import {set} from "../../../utils/dataprovider";
 import {counterKey} from "../dp";
 import tailwind from "../../../tailwind";
 
-/**
- * Même compteur : @publish sur le bouton, @handle réagit à chaque changement.
- */
+/** Same counter: @publish on the button, @handle reacts on every change. */
 @customElement("concept-handle-demo")
 export class ConceptHandleDemo extends LitElement {
   static styles = [tailwind];
@@ -44,13 +42,7 @@ export class ConceptHandleDemo extends LitElement {
         <sonic-button type="button" variant="primary" @click=${this.increment}>
           +1 (@publish)
         </sonic-button>
-        <p class="text-sm">
-          Dernière valeur vue par <code>@handle</code> :
-          <strong>${this.lastHandledCount}</strong>
-        </p>
-        <p class="text-sm text-neutral-600">
-          Méthode appelée <strong>${this.handleCallCount}</strong> fois
-        </p>
+        <p class="text-sm">@handle saw: <strong>${this.lastHandledCount}</strong> (${this.handleCallCount}×)</p>
       </div>
     `;
   }

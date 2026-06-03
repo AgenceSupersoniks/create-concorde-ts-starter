@@ -76,8 +76,8 @@ function paginateUsers(url: URL): ReqresUsersListResponse {
 }
 
 /**
- * Répond aux requêtes dont le pathname commence par /mock-api/.
- * Retourne null si la route n’est pas gérée.
+ * Handles requests whose pathname starts with /mock-api/.
+ * Returns null if the route is not handled.
  */
 export async function handleMockApiRequest(
   request: Request,
@@ -131,5 +131,5 @@ export async function handleMockApiRequest(
   return json({error: "Not found", path: subPath}, {status: 404, delayMs: wait});
 }
 
-/** Préfixe pathname attendu par le routeur (sans origin). */
+/** Pathname prefix expected by the router (without origin). */
 export const MOCK_API_PATH_PREFIX = MOCK_PREFIX;

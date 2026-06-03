@@ -8,12 +8,12 @@ export type AdvancedUser = {
   email: string;
 };
 
-/** Dépendances hôte pour résoudre `${userIndex}` dans le chemin. */
+/** Host dependencies to resolve `${userIndex}` in the path. */
 export type AdvancedUserHost = {userIndex: number};
 
 /**
- * Chemin dynamique : `starterAdvancedUsers.0`, `starterAdvancedUsers.1`, …
- * selon la propriété `userIndex` du composant hôte.
+ * Dynamic path: `starterAdvancedUsers.0`, `starterAdvancedUsers.1`, …
+ * based on the host component's `userIndex` property.
  */
 export const advancedUserKey = new DataProviderKey<
   AdvancedUser,

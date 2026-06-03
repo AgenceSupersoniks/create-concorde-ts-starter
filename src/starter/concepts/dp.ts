@@ -1,13 +1,13 @@
 import {DataProviderKey} from "@supersoniks/concorde/dataProviderKey";
 
-/** Compteur @publish / @subscribe / @handle */
+/** Counter for @publish / @subscribe / @handle */
 export type CounterData = {
   count: number;
 };
 
 export const counterKey = new DataProviderKey<CounterData>("starterConceptCounter");
 
-/** Champ unique pour la démo formDataProvider */
+/** Single field for the formDataProvider demo */
 export type ConceptFormData = {
   value: string;
 };

@@ -22,7 +22,7 @@ export class DemoGet extends LitElement {
           <code>@get</code> + <code>${starterApiConfigKey.path}</code>
         </p>
         ${this.payload === null
-          ? html`<p class="text-neutral-500">Chargement…</p>`
+          ? html`<p class="text-neutral-500">Loading…</p>`
           : html`
               <ul class="list-disc pl-5 text-sm">
                 ${rows?.map(
