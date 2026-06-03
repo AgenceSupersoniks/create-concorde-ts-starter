@@ -24,8 +24,9 @@ starter/
 
 | Section | Routes |
 |---------|--------|
-| Data concepts | `/concepts/dataprovider`, `/concepts/scope`, … `/concepts/sub` |
+| Data concepts | `/concepts/dataprovider` … `/concepts/sub` |
 | UI kit | `/ui` |
+| Scope | `/concepts/scope` |
 | Functional patterns | `/demo/get`, `/demo/list`, `/demo/queue` |
 | Advanced patterns | `/advanced/dynamic` |
 

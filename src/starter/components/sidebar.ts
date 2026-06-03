@@ -13,7 +13,6 @@ export const CONCEPTS_SECTION: SidebarSection = {
   title: "Data concepts",
   links: [
     {href: "/concepts/dataprovider", label: "DataProvider"},
-    {href: "/concepts/scope", label: "Scope"},
     {href: "/concepts/dpkey", label: "DataProviderKey"},
     {href: "/concepts/endpoint", label: "Endpoint"},
     {href: "/concepts/publish", label: "@publish + @subscribe"},
@@ -26,6 +25,11 @@ export const CONCEPTS_SECTION: SidebarSection = {
 export const UI_SECTION: SidebarSection = {
   title: "UI kit",
   links: [{href: "/ui", label: "Overview"}],
+};
+
+export const SCOPE_SECTION: SidebarSection = {
+  title: "Scope",
+  links: [{href: "/concepts/scope", label: "Overview"}],
 };
 
 export const DEMO_SECTION: SidebarSection = {

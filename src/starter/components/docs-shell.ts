@@ -6,6 +6,7 @@ import {
   ADVANCED_SECTION,
   CONCEPTS_SECTION,
   DEMO_SECTION,
+  SCOPE_SECTION,
   UI_SECTION,
   renderStarterSidebar,
 } from "./sidebar";
@@ -16,6 +17,7 @@ export function renderDocsShell(children: DirectiveResult) {
   const sections = [
     CONCEPTS_SECTION,
     UI_SECTION,
+    SCOPE_SECTION,
     DEMO_SECTION,
     ADVANCED_SECTION,
   ];

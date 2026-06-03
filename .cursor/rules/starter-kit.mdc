@@ -9,7 +9,7 @@ alwaysApply: false
 Reference: `.cursor/skills/starter-kit/SKILL.md`
 
 - All kit code in **`src/starter/`** — removable
-- Menu: Data concepts → **UI kit** → Functional patterns → Advanced patterns
+- Menu: Data concepts → **UI kit** → Scope → Functional patterns → Advanced patterns
 - UI components: `/ui` + skill **`concorde-ui`**
 - Mock: `/mock-api` via `src/starter/demo/api/`
 - Sync agents: `yarn ai:sync`

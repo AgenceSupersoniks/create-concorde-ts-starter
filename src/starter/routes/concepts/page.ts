@@ -7,7 +7,8 @@ export default function ConceptsIndexPage() {
     "Data concepts",
     html`<div class="space-y-3">
       <p class="text-sm text-neutral-600">
-        DataProvider → scope → DataProviderKey → Endpoint → decorators.
+        DataProvider → DataProviderKey → Endpoint → decorators. Scope is in its
+        own menu section (above @get).
       </p>
       ${scopeCallout("api")}
     </div>`,

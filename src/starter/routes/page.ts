@@ -35,6 +35,13 @@ export default function StarterKitLandingPage() {
               >
                 Data concepts
               </sonic-menu-item>
+              <sonic-menu-item
+                pushstate
+                href="/concepts/scope"
+                autoActive="strict"
+              >
+                Scope
+              </sonic-menu-item>
               <sonic-menu-item pushstate href="/demo/get" autoActive="strict">
                 Functional patterns
               </sonic-menu-item>

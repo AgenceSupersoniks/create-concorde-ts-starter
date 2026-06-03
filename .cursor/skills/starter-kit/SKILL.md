@@ -28,12 +28,13 @@ src/starter/
 
 | Section | Routes |
 |---------|--------|
-| **Data concepts** | `/concepts/dataprovider`, `/concepts/scope`, … `/concepts/sub` |
+| **Data concepts** | `/concepts/dataprovider` … `/concepts/sub` |
 | **UI kit** | `/ui` |
+| **Scope** | `/concepts/scope` |
 | **Functional patterns** | `/demo/get`, `/demo/list`, `/demo/queue` |
 | **Advanced patterns** | `/advanced/dynamic` |
 
-Source: `src/starter/components/sidebar.ts` — `CONCEPTS_SECTION`, `UI_SECTION`, `DEMO_SECTION`, `ADVANCED_SECTION`.
+Source: `src/starter/components/sidebar.ts` — `CONCEPTS_SECTION`, `UI_SECTION`, `SCOPE_SECTION`, `DEMO_SECTION`, `ADVANCED_SECTION`.
 
 Dev **↗ source** links when Cursor CLI is available (`cursor -r -g` via `/__starter/open`).
 
