@@ -30,6 +30,11 @@ console.log(`installing dependencies for ${repoName}`);
 const installDeps = runCommand(installDepsCommand);
 if (!installDeps) process.exit(-1);
 
+// Agent skills are not versioned: install them from the Concorde package
+console.log("installing the Concorde agent skill (.agents/skills)");
+const aiSync = runCommand(`cd ${repoName} && yarn ai:sync`);
+if (!aiSync) console.warn("  skipped — run `yarn ai:sync` in the project later");
+
 let path = require("path");
 let fs = require("fs");
 const packageJsonPath = path.join(process.cwd(), repoName, "package.json");
@@ -46,4 +51,5 @@ console.log("");
 console.log(`  cd ${repoName}`);
 console.log("  yarn dev    # https://localhost:3000 (accept self-signed cert)");
 console.log("");
-console.log("  Kit pédagogique : src/starter/ — voir GETTING_STARTED.md");
+console.log("  Pages : src/app/ (home, /demo, 404) — voir GETTING_STARTED.md");
+console.log("  Agents IA : skill concorde dans .agents/skills (yarn ai:sync)");

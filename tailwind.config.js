@@ -14,8 +14,10 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       content: "var(--sc-base-content)",
+      base: "var(--sc-base)",
       neutral: {
         0: "var(--sc-base)",
+        50: "var(--sc-base-50)",
         100: "var(--sc-base-100)",
         200: "var(--sc-base-200)",
         300: "var(--sc-base-300)",
@@ -57,7 +59,9 @@ module.exports = {
         DEFAULT: "var(--sc-border-width)",
       },
       fontFamily: {
-        headings: ["var(--sc-font-family-headings)"],
+        headings: [
+          "var(--sc-headings-font-family, var(--sc-font-family-base, sans-serif))",
+        ],
         body: ["var(--sc-font-family-base)"],
       },
       fontWeight: {

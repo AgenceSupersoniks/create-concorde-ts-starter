@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * Synchronise les fichiers agent IA : Concorde (framework) + overlay starter.
+ * Synchronise la skill agent IA `concorde`, copiée dans `.agents/skills/` et
+ * liée depuis `.claude/skills/` et `.junie/skills/`. AGENTS.md reste maintenu
+ * à la main.
  *
  * Usage: yarn ai:sync
  * Dev local Concorde: CONCORDE_AI=/chemin/vers/concorde/ai yarn ai:sync
@@ -13,7 +15,6 @@ import {fileURLToPath} from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
-const overlayDir = path.join(projectRoot, "ai", "starter");
 
 function resolveConcordeAi() {
   if (process.env.CONCORDE_AI) {
@@ -55,9 +56,6 @@ const result = spawnSync(
     projectRoot,
     "--concorde-ai",
     concordeAi,
-    "--overlay",
-    overlayDir,
-    "--merge-agents",
   ],
   {stdio: "inherit"},
 );

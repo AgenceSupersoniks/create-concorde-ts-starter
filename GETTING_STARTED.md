@@ -9,46 +9,46 @@ cd <nom-du-projet> && yarn dev
 
 ```
 src/
-├── main.ts                 # theme + router (minimal)
-├── app/                    # votre app après retrait du kit (modèle)
-├── utils/dataprovider.ts   # get / set / read (DataProvider)
-└── starter/                # ← SUPPRIMER quand vous êtes prêt
-    ├── README.md
-    ├── routes/             # /, /concepts/*, /demo/*, /advanced/*
-    ├── concepts/           # pages pédagogiques + dp.ts
-    ├── demo/               # mock API, list/queue templates
-    ├── advanced/           # DataProviderKey dynamique
-    └── components/         # sidebar, docs-shell
+├── main.ts                 # thème + <app-root>
+├── app-root.ts             # rend le routeur généré
+├── app/                    # routes (un dossier = une route)
+│   ├── layout.ts           # header : marque, navigation, clair / sombre
+│   ├── page.ts             # /
+│   ├── 404.ts              # toute URL inconnue
+│   ├── demo/page.ts        # /demo
+│   └── router.ts           # généré, ne pas modifier
+├── components/             # composants (hors de app/ : pas des routes)
+│   ├── flight-board.ts     # démo : recherche + switch → store → liste
+│   └── theme-toggle.ts
+└── css/app.css             # tokens du thème (clair et sombre)
 ```
 
-## Kit pédagogique (`src/starter/`)
+## Router
 
-Tout est dans **un seul dossier** : landing, concepts, utilisations classiques, utilisations avancées, mock API.
+`autoRoutesPlugin("src/app")` (`vite.config.mts`) génère `src/app/router.ts` à chaque ajout ou suppression de fichier pendant `yarn dev`.
 
-### Menu
-
-| Section | Contenu |
-|---------|---------|
-| **Data concepts** | DataProvider, DataProviderKey, Endpoint, @publish, @handle, form, sub |
-| **Functional patterns** | @get, sonic-list (templates Lit), sonic-queue (scroll + recherche) |
-| **Utilisations avancées** | DataProviderKey avec placeholder dynamique |
-
-Landing (`/`) : liens vers **Data concepts** et **Functional patterns**.
-
-## Passer à votre app seule
-
-1. Supprimer **`src/starter/`**
-2. **`vite.config.mts`** : `autoRoutesPlugin("src/app")` à la place de `src/starter/routes`
-3. **`src/starter-router-host.ts`** : `import { router } from "./app/router"`
-4. Utiliser le modèle dans **`src/app/page.ts`** + `yarn dev` pour regénérer `router.ts`
-
-Aucune autre dépendance au kit.
+- `src/app/vols/page.ts` → `/vols`
+- `src/app/vols/[code]/page.ts` → `/vols/:code`
+- un `layout.ts` dans un dossier enveloppe ses pages
+- pas de tirets dans les noms de dossiers
+- liens : `pushstate href="/vols"` sur `sonic-button` ou `sonic-menu-item`
 
 ## DataProvider
 
+Toujours via une clé typée :
+
 ```ts
-import { get, set } from "src/utils/dataprovider";
-set("monChemin", { value: "" });
+import { DataProviderKey } from "@supersoniks/concorde/decorators";
+import { get, set, dp } from "@supersoniks/concorde/utils";
+
+const profileKey = new DataProviderKey<{ name: string }>("profile");
+set(profileKey, { name: "" });   // écrit
+get(profileKey.name);            // lit (snapshot)
+dp(profileKey.name).set("Ada");  // instance DataProvider
 ```
 
-Voir `.cursor/skills/concorde/SKILL.md` et `AGENTS.md`. Sync : `yarn ai:sync`.
+Dans un template : `sub(profileKey.name)` (`@supersoniks/concorde/directives`).
+
+## Agents IA
+
+Skill `concorde` dans `.agents/skills/` (liées depuis `.claude/skills/` et `.junie/skills/`). Voir `AGENTS.md`. Mise à jour : `yarn ai:sync`.

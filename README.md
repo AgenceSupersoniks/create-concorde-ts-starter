@@ -11,51 +11,26 @@ npx @supersoniks/create-concorde-ts-starter mon-projet
 cd mon-projet && yarn dev
 ```
 
-Page d’accueil et kit pédagogique dans **`src/starter/`** (un seul dossier supprimable). Votre app : **`src/app/`**.
+Trois pages dans `src/app/` : accueil (`/`), démo (`/demo`) et 404, plus un header avec navigation et bouton clair / sombre. Voir `GETTING_STARTED.md`.
 
 ## Développer le template lui-même
 
 ```bash
 git clone …/create-concorde-ts-starter && cd create-concorde-ts-starter
-yarn install && yarn dev
+yarn install && yarn ai:sync && yarn dev
 ```
 
-Même UI que le projet généré (sans passer par `npx`).
+`STARTER_HTTP=1 yarn dev` sert en HTTP simple (navigateurs qui refusent le certificat auto-signé).
 
-## API mock (`/mock-api`)
+## Agents IA (Cursor, Claude Code, Junie…)
 
-| Route | Usage |
-|-------|--------|
-| `GET /mock-api/users?offset=0&limit=4&q=…` | Scroll infini — `sonic-queue` + recherche |
-| `GET /mock-api/users/2` | Utilisateur seul (fixtures) |
-| `GET /mock-api/communes?limit=5` | Tableau — démo `@get` + `APIConfiguration` |
-| `GET /mock-api/health` | Santé du mock |
-
-**Implémentation**
-
-- `src/demo-api/router.ts` — logique partagée (fixtures, routes)
-- `src/demo-api/service-worker.ts` — intercepte les `fetch` vers `/mock-api/*` (build → `public/demo-api-sw.js`)
-- `scripts/demo-api-vite-plugin.ts` — rebuild du SW + middleware de secours en dev/preview
-- `src/starter/demo/api/` — DataProvider `starterApiConfiguration` (`DataProviderKey<APIConfiguration>`)
-
-Étendre les routes dans `src/starter/demo/api/` (ou `scripts/demo-api-vite-plugin.ts`) pour de nouvelles démos.
-
-## Fichiers clés
-
-| Fichier | Rôle |
-|---------|------|
-| `src/starter/` | Kit complet : landing, concepts, démos, advanced — **supprimer pour prod** |
-| `src/app/` | Modèle minimal pour votre app après retrait du kit |
-| `AGENTS.md` | Guide agents (sync via `yarn ai:sync`) |
-| `ai/starter/` | Source overlay starter (skills/rules) |
-
-## Agent IA (Cursor + JetBrains)
-
-Fichiers dans `ai/` (Concorde) + overlay `ai/starter/` (ce template).
+Skill `concorde` au format [Agent Skills](https://agentskills.io), fournie par le package.
 
 ```bash
-yarn ai:sync   # .cursor/, .aiassistant/rules/, AGENTS.md
+yarn ai:sync   # copie dans .agents/skills/, liens depuis .claude/skills/ et .junie/skills/
 ```
+
+Ces dossiers ne sont pas versionnés : le CLI de création lance `yarn ai:sync`, à relancer après un `git clone` ou une mise à jour de Concorde.
 
 Dans un projet Concorde sans starter :
 
@@ -65,4 +40,4 @@ node node_modules/@supersoniks/concorde/scripts/ai-init.mjs
 
 ## Concorde
 
-Documentation : fichiers `.md` dans `node_modules/@supersoniks/concorde/src/`.
+Documentation : https://concorde.supersoniks.org/ (index agents : `/llms.txt`) · hors ligne : fichiers `.md` dans `node_modules/@supersoniks/concorde/src/`.
